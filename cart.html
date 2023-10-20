@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assests/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assests/css/aboutstyle.css">
+    <!--FONT LINK-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Raleway&family=Roboto:wght@100;300;400&family=Satisfy&display=swap" rel="stylesheet"> 
+    <!--ICON LINK-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
+    <!--AOS LINK-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!--JS LINK-->
+    <script src="assests/js/script.js"></script> 
+
+    <title>Cart</title>
+  </head>
+  <body>
+    <body>
+        <div class="right- pt-3">
+            <div class="card">
+                <img src="./assests/images/product1.jpeg" class="card-img-top" id="card_img" alt="...">
+                <span class="right-amount" id="amount">₹10000</span>
+                <div class="card-body mt-4">
+                  <span class="span-title">Product Title:</span><h5 class="card-title" id="cardtitle">Nike Alphafly 2
+                    Men's Road Racing Shoe</h5>
+                  <span class="span-title">Product Description: </span><p class="card-text" id="carddescription">Once you take a few strides in the Nike Air Zoom Alphafly NEXT% 2, you'll never look at your favourite pair of old racing shoes the same way again...</p>
+                  <span class="total" id="total" style="color: red;">Total Amount</span>
+                  <div class="total-box">
+                    <span id="total_amount" class="total-amount"></span>
+                  </div>
+                  <a href="#" class="btn right-card-btn" onclick="order()">Submit</a>
+                </div>
+              </div>
+            </div>
+        </div>
+          
+
+    <script src="assests/js/jquery.min.js" ></script>
+    <script src="assests/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+      function getLocalStorage(){
+        let title=localStorage.getItem ("title");
+        document.getElementById("cardtitle").innerHTML=title;
+        let description=localStorage.getItem ("description");
+        document.getElementById("carddescription").innerHTML=description;
+        let amounttotal=localStorage.getItem ("amounttotal");
+        document.getElementById("total_amount").innerHTML=amounttotal;
+        let amount=localStorage.getItem ("amount");
+        document.getElementById("amount").innerHTML=amount;
+        let productimage=localStorage.getItem ("productimage");
+        document.getElementById("card_img").src=productimage;
+        console.log(productimage);
+      }
+      getLocalStorage();
+      function order(){
+        alert("Placed order sucessfully")
+      }
+    </script>
+  </body>
+</html>

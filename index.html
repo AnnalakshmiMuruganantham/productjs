@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assests/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assests/css/style.css">
+    <!--FONT LINK-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <!--ICON LINK-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
+    <!--AOS LINK-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>Product</title>
+  </head>
+  <body>
+    <section id="product">
+        <div class="whole container-fluid">
+            <div class="row mt-3">
+                <div class="col-sm-12 col-md-6 left-form pl-5 mt-5">
+                    <h1 class="left-h mb-5">Product Details</h1>
+                    <form>
+                        <div class="form-group">
+                          <label for="exampleFormControlInput1">Product Title</label><span style="color: red;" class="star">*</span>
+                          <input type="text" class="form-control" id="producttitle" placeholder="Enter the Product Title" required>
+                          <p id="producttitleerror" style="display: none;">Please Enter Product Title</p>
+                          <P id="producttitlelenghterror" style="display: none;">Product Title must have atleast 10 characters</P>
+                        </div>
+                        <div class="form-group mt-3">
+                          <label for="exampleFormControlInput1">Description</label><span style="color: red;" class="star">*</span><br>
+                          <textarea placeholder="Enter the Description" id="description" class="left-description" required></textarea>
+                          <p id="descriptionerror" style="display: none;">Please Enter description</p>
+                          <P id="descriptionlenghterror" style="display: none;">description must have atleast 20 characters</P>
+                        </div>
+                        <div class="form-group mt-3">
+                          <label for="exampleFormControlInput1">Value</label><span style="color: red;" class="star">*</span>
+                          <input type="number" class="form-control" id="value" placeholder="Enter the Value" required>
+                          <p id="valueerror" style="display: none;">Please Enter value</p>
+                          <P id="valuelimiterror" style="display: none;">value must be a number</P>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="exampleFormControlInput1">Image</label><span style="color: red;" class="star">*</span>
+                            <input type="file" class="form-control-file" id="productimg" onchange="imagechange(event)" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="exampleFormControlInput1">Max Limit</label><span style="color: red;" class="star">*</span>
+                            <input type="number" class="form-control" id="limit" placeholder="Enter the Max Limit" required>
+                            <p id="limiterror" style="display: none;">Please Enter Limit Value</p>
+                            <P id="limitnumbererror" style="display: none;">value must be a number</P>
+                        </div>
+                        <button type="button" class="btn left-btn" onclick="productdescription()">Submit</button>
+                      </form>
+                </div>
+                <div class="col-sm-12 col-md-6 right-product">
+                    <div class="card">
+                        <img src="./assests/images/product1.jpeg" class="card-img-top" id="card_img_top" alt="...">
+                        <span class="right-amount" id="amount">₹10000</span>
+                        <div class="card-body mt-4">
+                          <span class="span-title">Product Title:</span><h5 class="card-title" id="cardtitle"> Nike Alphafly 2
+                            Men's Road Racing Shoes</h5>
+                          <span class="span-title">Product Description: </span><p class="card-text" id="carddescription">Once you take a few strides in the Nike Air Zoom Alphafly NEXT% 2, you'll never look at your favourite pair of old racing shoes the same way again...</p>
+                          <div class="btn-box">
+                            <button type="button" class="btn right-btn0" onclick="decrement()">-</button>
+                            <button type="button" class="btn right-btn1" id="maxlimitbtn">0</button>
+                            <button type="button" class="btn right-btn2" onclick="increment()">+</button>
+                          </div>
+                          <p id="maxlimitbtnerror" style="display: none;">Reached Maximum Limit</p>
+                          <span class="total" id="total" style="color: red;">Total Amount</span>
+                          <div class="total-box">
+                            <span id="total_box_amount" class="total-amount"></span>
+                          </div>
+                          </div>
+                          <a href="cart.html" target="_blank" class="btn right-card-btn" onclick="gottocart()">Add To Cart</a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+          </div>
+
+    </section>
+    <script src="assests/js/jquery.min.js" ></script>
+    <script src="assests/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+      function productdescription(){
+        var producttitle=document.getElementById("producttitle");
+        var description=document.getElementById("description");
+        var value=document.getElementById("value");
+        var limit=document.getElementById("limit");
+        var cardtitle=document.getElementById("cardtitle");
+        var carddescription=document.getElementById("carddescription");
+        var amount=document.getElementById("amount");
+        var totalamount=document.getElementById("total_box_amount");
+        if (producttitle.value){
+          if (producttitle.value.length>=10){
+            document.getElementById("producttitle").style="display:none;";
+            document.getElementById("producttitle").style="border:2px solid #62f700;";
+            document.getElementById("producttitlelenghterror").style="display:none;";
+            document.getElementById("producttitleerror").style="display:none;";
+            let title=producttitle.value;
+            var titlefinal=title.substr(0,80)+('....');
+            console.log(titlefinal);
+            cardtitle.textContent=titlefinal;
+          }
+          else{
+            document.getElementById("producttitle").style="border:2px solid red; width: 460px; ";
+            document.getElementById("producttitlelenghterror").style="display:block; color:red;";
+            document.getElementById("producttitleerror").style="display:none;";
+          }
+        }
+        else{
+          document.getElementById("producttitle").style="border:2px solid red;";
+          document.getElementById("producttitlelenghterror").style="display:none;";
+          document.getElementById("producttitleerror").style="display:block; color:red;";
+        }
+        if (description.value){
+          if (description.value.length>=20){
+            document.getElementById("description").style="display:none;";
+            document.getElementById("description").style="border:2px solid #62f700; width: 460px; border-radius: 10px;";
+            document.getElementById("descriptionlenghterror").style="display:none;";
+            document.getElementById("descriptionerror").style="display:none;";
+            let proddescrip=description.value;
+            var descriptionfinal=proddescrip.substr(0,155)+('....');
+            console.log(descriptionfinal);
+            carddescription.textContent=descriptionfinal;
+          }
+          else{
+            document.getElementById("description").style="border:2px solid red; width: 460px; border-radius: 10px;";
+            document.getElementById("descriptionlenghterror").style="display:block; color:red;";
+            document.getElementById("descriptionerror").style="display:none;";
+          }
+        }
+        else{
+          document.getElementById("description").style="border:2px solid red; width: 460px; border-radius: 10px;";
+          document.getElementById("descriptionlenghterror").style="display:none;";
+          document.getElementById("descriptionerror").style="display:block; color:red;";
+        }
+        if (value.value){
+            document.getElementById("value").style="display:none;";
+            document.getElementById("value").style="border:2px solid #62f700;";
+            document.getElementById("valueerror").style="display:none;";
+            amount.textContent="₹"+value.value;
+          }
+        else{
+          document.getElementById("value").style="border:2px solid red;"
+          document.getElementById("valueerror").style="display:block; color:red;";
+        }
+        if (limit.value){
+            document.getElementById("limit").style="border:2px solid #62f700;";
+            document.getElementById("limiterror").style="display:none;";
+            
+          }
+        else{
+          document.getElementById("limit").style="border:2px solid red;";
+          document.getElementById("limiterror").style="display:block; color:red;";
+          
+        }
+        localStorage.setItem('title',titlefinal)
+        localStorage.setItem('description',descriptionfinal)
+        localStorage.setItem('amount',amount.textContent)
+        var eventFire = false;
+        document.getElementById("productimg").style="color:red";
+        $("button").on("click", function() {
+          eventFire = true;
+        if(eventFire){
+            document.getElementById("productimg").style="color:#62f700";
+        }   
+        });   
+      }
+     
+      function decrement(){
+        document.getElementById("maxlimitbtnerror").style="display:none;";
+        let maxlimitbtn=document.getElementById("maxlimitbtn");
+        if (maxlimitbtn.textContent>=1){
+          maxlimitbtn.textContent--;
+          total_box_amount.textContent= total_box_amount.textContent-document.getElementById("value").value;
+        }
+      }
+      function increment(){
+        let maxlimitbtn=document.getElementById("maxlimitbtn");
+        if(maxlimitbtn.textContent==document.getElementById("limit").value){
+          document.getElementById("maxlimitbtnerror").style="display:block; color:red; postion:absolute;";
+        }
+        else{
+          maxlimitbtn.textContent++;
+          total_box_amount.textContent=document.getElementById("value").value*maxlimitbtn.textContent;
+        }
+      }
+      function imagechange(event){
+        var productimg=document.getElementById("card_img_top");
+          productimg.src=URL.createObjectURL(event.target.files[0]);
+          productimg.onload=function(){
+          URL.revokeObjectURL(productimg.src)
+        }
+        localStorage.setItem('productimage',URL.createObjectURL(event.target.files[0]))
+      }
+      function gottocart(){
+        localStorage.setItem('amounttotal',total_box_amount.textContent)
+
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,143 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+body {
+  background-color: #007dbc;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bolder;
+  height: 109vh;
+}
+.right-amount{
+  position: absolute;
+  top: 28px;
+  left: 120px;
+  font-size: 25px;
+  background-color: #ffd601;
+  border-radius: 8px;
+}
+.right-product{
+  color: #071332;
+  padding-left: 551px;
+  margin-top: 43px;
+}
+.card-img-top{
+  height: 250px;
+  width: 265px;
+  margin-left: 104px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 9px 7px 18px #000;
+}
+.card{
+  background-color:#e7e6e6 ;
+  box-shadow: 9px 7px 18px #000;
+  width: 29rem; 
+  height: 39rem;
+  margin-left: 550px;
+  margin-top:30px;
+}
+.right-card-btn{
+  margin-left: 241px;
+  padding: 9px;
+  width: 128px;
+  background-color: #ffd601;
+  margin-bottom: 0px;
+  font-weight: 700;
+  margin-top: 17px;
+}
+.right-card-btn:hover{
+  color: #007dbc;
+}
+.total-box{
+  border: 2px solid #1f1b1b;
+  width: 27%;
+  height: 42px;
+  position: absolute;
+  left: 38px;
+  bottom: 42px;
+}
+.total{
+  position: relative;
+  left: 15px;
+  top: 3px;
+}
+.total-amount{
+  position: relative;
+  left: 36px;
+  top: 7px;
+}
+.span-title{
+  color: #007dbc;
+
+}
+@media (max-width: 768px){
+  .right-amount{
+    position: absolute;
+    top: 28px;
+    left: 44px;
+    font-size: 25px;
+    background-color: #ffd601;
+    border-radius: 8px;
+  }
+  .right-product{
+    color: #071332;
+    padding-left: 0px;
+    margin-top: 0px;
+    overflow: hidden;
+  }
+  .card-img-top{
+    height: 250px;
+    width: 265px;
+    margin-left: 31px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: -12px 17px 34px 2px black;
+  }
+  .card{
+    background-color:#e7e6e6 ;
+    box-shadow: 9px 8px 26px 5px black;
+    width: 21rem;
+    height: 43rem;
+    margin-left: 10px;
+  }
+  .card-body{
+    overflow: hidden;
+  }
+  .right-card-btn{
+    margin-left: 153px;
+    padding: 9px;
+    width: 128px;
+    background-color: #ffd601;
+    margin-bottom: 10px;
+    font-weight: 700;
+    margin-top: 35px;
+  }
+  .right-card-btn:hover{
+    color: #007dbc;
+  }
+  .total-box{
+    border: 2px solid #1f1b1b;
+    width: 33%;
+    height: 42px;
+    position: absolute;
+    left: 24px;
+    bottom: 28px;
+  }
+  .total{
+    position: relative;
+    left: 0px;
+    top: 26px;
+  }
+  .total-amount{
+    position: relative;
+    left: 36px;
+    top: 7px;
+  }
+  .span-title{
+    color: #007dbc;
+  
+  }
+}
